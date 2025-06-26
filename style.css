@@ -19,14 +19,85 @@ header {
   border-bottom: 1px solid #333;
 }
 
-.profile-pic {
-  width: 120px;
-  height: 120px;
+.profile-wrapper {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  margin: auto;
+  background: radial-gradient(circle at center, #00bcd4 0%, transparent 70%);
   border-radius: 50%;
-  border: 3px solid #444;
-  object-fit: cover;
-  margin-bottom: 10px;
+  padding: 10px;
+  box-shadow: 0 0 30px rgba(0, 188, 212, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.profile-pic {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #00bcd4;
+  box-shadow: 0 0 15px rgba(0, 188, 212, 0.3);
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%   { box-shadow: 0 0 10px rgba(0, 188, 212, 0.3); }
+  50%  { box-shadow: 0 0 25px rgba(0, 188, 212, 0.6); }
+  100% { box-shadow: 0 0 10px rgba(0, 188, 212, 0.3); }
+}
+
+.profile-pic:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0,188,212,0.4);
+}
+
+
+.underline-heading {
+  position: relative;
+  display: inline-block;
+  font-size: 2rem;
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.underline-heading::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(to right, #00bcd4, #ff4081);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: underlineBounce 4s ease-in-out infinite;
+}
+
+@keyframes underlineBounce {
+  0%   { transform: scaleX(0); transform-origin: left; }
+  25%  { transform: scaleX(1); transform-origin: left; }
+  50%  { transform: scaleX(0); transform-origin: right; }
+  75%  { transform: scaleX(1); transform-origin: right; }
+  100% { transform: scaleX(0); transform-origin: left; }
+}
+
+
+
+
+@keyframes rotate {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes rotateReverse {
+  0%   { transform: rotate(360deg); }
+  100% { transform: rotate(0deg); }
+}
+
 
 h1 {
   margin: 0;
@@ -159,3 +230,4 @@ footer {
     text-align: center;
   }
 }
+
